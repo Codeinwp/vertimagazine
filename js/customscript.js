@@ -1,0 +1,1 @@
+jQuery(function(){jQuery("ul.nav").tinyNav()});
