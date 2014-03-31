@@ -451,14 +451,13 @@ footer {
     overflow: hidden;
 }
 .footer_contact .call {
-    width: 40%;
+    width: 100%;
     height: auto;
     float: left;
 }
 .footer_contact .email {
-    width: 55%;
+    width: 100%;
     height: auto;
-    margin-left: 4%;
     float: left;
 }
 .footer_contact .email span, .footer_contact .call span {
@@ -735,4 +734,8 @@ textarea:focus, input:focus {
     font-size: 20px ;
     color: #c5c5c5 ;
     padding-bottom: 20px ;
+}
+
+.alignright {
+	float:right !important;
 }

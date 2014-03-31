@@ -143,6 +143,7 @@ function vertiMagazine_theme_widgets_init() {
 		
 		register_sidebar(array(
 			'name' => __( 'Footer One', 'vertiMagazine'),
+			'id'   => 'sidebar-footer-1',
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget' => '</div>',
 			'before_title' => '<h2 class="widgettitle">',
@@ -151,6 +152,7 @@ function vertiMagazine_theme_widgets_init() {
 		
 		register_sidebar(array(
 			'name' => __( 'Footer Two', 'vertiMagazine'),
+			'id' => 'sidebar-footer-2',
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget' => '</div>',
 			'before_title' => '<h2 class="widgettitle">',
