@@ -25,14 +25,14 @@
 				</div>
 			</div><!--/footer_item-->
             <div class="footer_item">
-			<?php if ( is_active_sidebar( 'Footer One' ) ) : ?>
-			<?php dynamic_sidebar( 'Footer One' ); ?>
-	<?php endif; ?>
+			<?php if ( is_active_sidebar( 'sidebar-footer-1' ) ) : ?>
+					<?php dynamic_sidebar( 'sidebar-footer-1' ); ?>
+			<?php endif; ?>
             </div>
             <div class="footer_item">
-						<?php if ( is_active_sidebar( 'Footer Two' ) ) : ?>
-			<?php dynamic_sidebar( 'Footer Two' ); ?>
-	<?php endif; ?>
+			<?php if ( is_active_sidebar( 'sidebar-footer-2' ) ) : ?>
+				<?php dynamic_sidebar( 'sidebar-footer-2' ); ?>
+			<?php endif; ?>
             </div>
 		</div>
 	</footer>
