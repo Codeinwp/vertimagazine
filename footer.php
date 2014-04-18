@@ -5,24 +5,44 @@
  *
  * @package vertiMagazine theme
  */
- global $vertimagazine_options;
 ?>
 
 <footer>
 		<div id="footer_center">
 			<div class="footer_item">
-				<div class="footer_logo">
-                    <img src="<?php $default_logo = get_template_directory_uri() . "/img/logo-default.png";
-                    $tl = (($vertimagazine_options["logo_jos"] != '') ? $vertimagazine_options["logo_jos"] : $default_logo ); 
-                    echo esc_attr($tl); ?>" alt="<?php bloginfo('description'); ?>"/>
-                </div>
+				<?php 
+					$logo_jos = cwp('logo_jos');
+					if(isset($logo_jos) && $logo_jos != ""):
+						?>
+						<div class="footer_logo">
+							<img src="<?php echo $logo_jos; ?>" alt="<?php bloginfo('description'); ?>"/>
+						</div>	
+						<?php
+					endif;
+				?>	
 				<div class="footer_contact">
-					<div class="call"><span>Call us</span><br /><?php $n = ($vertimagazine_options["phone"] != '' ? $vertimagazine_options["phone"] : "+1 234 567 890" ); echo esc_attr($n); ?></div>
-					<div class="email"><span>Email us</span><br /><?php $e = ($vertimagazine_options["email"]!= '' ? $vertimagazine_options["email"] : "supportatcodeinwp.com" ); echo esc_attr($e); ?></div>
+					<?php 
+						$phone = cwp('phone'); 
+						if(isset($phone) && $phone != ''):
+							echo '<div class="call"><span>Call us</span><br />'.$phone.'</div>';
+						endif;
+						$email = cwp('email');
+						if(isset($email) && $email != ""):
+							echo '<div class="email"><span>Email us</span><br />'.$email.'</div>';
+						endif;
+					?>
 				</div><!--/footer_contact-->
-				<div class="copyright">
-                	<?php  $cr = $vertimagazine_options["copyright"]; echo esc_attr($cr);  _e("Powered by <a href='http://wordpress.org'>WordPress</a>, designed by <a rel='nofollow' href='http://themes.codeinwp.com/themes/vertimagazine/'>CodeinWP</a>.","VertiMagazine theme");  ?>
-				</div>
+				<?php
+					$copyright = cwp('copyright');
+					if(isset($copyright) && $copyright != ""):
+						?>
+						<div class="copyright">
+							<?php echo $copyright; ?>
+							<a href="http://themeisle.com/themes/vertimagazine/?utm_source=themefooter&utm_medium=logo&utm_campaign=themefooter" target="_blank">VertiMagazine</a><?php _e(' powered by ','cwp'); ?><a href="http://wordpress.org/" target="_blank"><?php _e('WordPress','cwp'); ?></a>				
+						</div>
+						<?php
+					endif;
+				?>
 			</div><!--/footer_item-->
             <div class="footer_item">
 			<?php if ( is_active_sidebar( 'sidebar-footer-1' ) ) : ?>

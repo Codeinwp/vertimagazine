@@ -5,7 +5,6 @@
  *
  * @package vertiMagazine theme
  */
- global $vertimagazine_options;
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -56,13 +55,26 @@
 							</ul>
 								   
 						</div>
-						<div id="socialmedia">
-							<ul class="nav2 pull-right">
-								<li> <a href="<?php $fb = $vertimagazine_options["facebook"]; echo esc_attr($fb); ?>" target="_blank"><img src="<?php $path = get_template_directory_uri(); echo $path; ?>/images/facebook.png" alt="facebook"></a> </li>
-								<li> <a style="display: block; margin-top: 1px;" href="<?php $tw = $vertimagazine_options["twitter"]; echo esc_attr($tw); ?>" target="_blank"><img src="<?php $path = get_template_directory_uri(); echo $path; ?>/images/twitter.png" alt="twitter"></a> </li>
-								<li> <a href="<?php $yt = $vertimagazine_options["youtube"]; echo esc_attr($yt); ?>" target="_blank"><img src="<?php $path = get_template_directory_uri(); echo $path; ?>/images/youtube.png" alt="youtube"></a> </li>
-							</ul>
-							</div>
+						<?php
+							$facebook = cwp('facebook');
+							$twitter = cwp('twitter');
+							$youtube = cwp('youtube');
+							if((isset($facebook) && $facebook != '') || (isset($twitter) && $twitter != '') || (isset($youtube) && $youtube != '')):
+								echo '<div id="socialmedia">';
+									echo '<ul class="nav2 pull-right">';
+										if(isset($facebook) && $facebook != ''):
+											echo '<li> <a href="'.$facebook.'" target="_blank"><img src="'.get_template_directory_uri().'/images/facebook.png" alt="facebook"></a> </li>';
+										endif;
+										if(isset($twitter) && $twitter != ''):
+											echo '<li> <a style="display: block; margin-top: 1px;" href="'.$twitter.'" target="_blank"><img src="'.get_template_directory_uri().'/images/twitter.png" alt="twitter"></a> </li>';
+										endif;
+										if(isset($youtube) && $youtube != ''):
+											echo '<li> <a href="'.$youtube.'" target="_blank"><img src="'.get_template_directory_uri().'/images/youtube.png" alt="youtube"></a> </li>';
+										endif;
+									echo '</ul>';
+								echo '</div>';	
+							endif;
+						?>
 					</div>
 				</div>
 			</div>
@@ -70,23 +82,46 @@
 
 	<span class="clear"></span>
 	<header>
-		<div id="logo">
-			<a href="<?php echo esc_html(home_url()); ?>">
-            <?php // $password = (isset($_POST['password']) ? $_POST['password'] : ''); ?>
-            
-				<img src="<?php
-                    $default_logo = get_template_directory_uri() . "/img/logo-default.png";
-                    $tl = (($vertimagazine_options["logo_sus"] != '') ? $vertimagazine_options["logo_sus"] : $default_logo ); 
-                    echo $tl; 
-                ?>" alt="<?php bloginfo('description'); ?>"/>
-			</a>
-		</div><!--/logo-->
+		<?php 
+			$logo_sus = cwp('logo_sus');
+			if(isset($logo_sus) && $logo_sus != ""):
+				?>
+				<div id="logo">
+					<a href="<?php echo esc_html(home_url()); ?>">
+						<img src="<?php echo $logo_sus; ?>" alt="<?php bloginfo('description'); ?>"/>
+					</a>
+				</div>	
+				<?php
+			else:
+				echo '<div class="no-logo">';
+				echo '<h1 class="site-title"><a href="'.esc_url( home_url( '/' ) ).'" title="'.esc_attr( get_bloginfo( 'name', 'display' ) ).'" rel="home">'.get_bloginfo( 'name' ).'</a></h1>';
+
+				echo '<h2 class="site-description"><a href="'.esc_url( home_url( '/' ) ).'" title="'.esc_attr( get_bloginfo( 'name', 'display' ) ).'" rel="home">'.get_bloginfo( 'description' ).'</a></h2>';
+				echo '</div>';
+			endif;
+		?>
 		<!--/responsive social media-->
-			<div id="respon_socialmedia">
-				<a href="<?php $fb = $vertimagazine_options["facebook"]; echo esc_attr($fb); ?>"  target="_blank"><img src="<?php $path = get_template_directory_uri(); echo $path; ?>/images/r_facebook.png" alt="facebook"></a>
-				<a href="<?php $tw = $vertimagazine_options["twitter"]; echo esc_attr($tw); ?>"  target="_blank"><img src="<?php $path = get_template_directory_uri(); echo $path; ?>/images/r_twitter.png" alt="twitter"></a>
-				<a href="<?php $yt = $vertimagazine_options["youtube"]; echo esc_attr($yt); ?>"  target="_blank"><img src="<?php $path = get_template_directory_uri(); echo $path; ?>/images/r_youtube.png" alt="youtube"></a>
-			</div><!--/socialmedia-->
+			<?php
+				$facebook = cwp('facebook');
+				$twitter = cwp('twitter');
+				$youtube = cwp('youtube');
+				
+				if((isset($facebook) && $facebook != '') || (isset($twitter) && $twitter != '') || (isset($youtube) && $youtube != '')):
+					echo '<div id="respon_socialmedia">';
+				
+					if(isset($facebook) && $facebook != ''):
+						echo '<a href="'.$facebook.'"  target="_blank"><img src="'.get_template_directory_uri().'/images/r_facebook.png" alt="facebook"></a>';
+					endif;
+					if(isset($twitter) && $twitter != ''):
+						echo '<a href="'.$twitter.'"  target="_blank"><img src="'.get_template_directory_uri().'/images/r_twitter.png" alt="twitter"></a>';
+					endif;
+					if(isset($youtube) && $youtube != ''):
+						echo '<a href="'.$youtube.'"  target="_blank"><img src="'.get_template_directory_uri().'/images/r_youtube.png" alt="youtube"></a>';
+					endif;
+				
+					echo '</div>';
+				endif;
+			?>	
 		<!--/responsive social media-->
 		<div id="search">
 			<form method="get" id="searchform" action="<?php echo esc_html(home_url()); ?>/">
