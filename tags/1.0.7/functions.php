@@ -4,6 +4,8 @@
  *
  * @package vertiMagazine theme
  */
+
+require_once('theme-options.php');
  
 /**
  * Set the content width based on the theme's design and stylesheet.
@@ -15,7 +17,6 @@ if ( ! isset( $content_width ) )
  * Load Jetpack compatibility file.
  */
 require( get_template_directory() . '/inc/jetpack.php' );
-require( get_template_directory() . '/admin/functions.php' );
 
 if ( ! function_exists( 'vertiMagazine_theme_setup' ) ) :
 /**
@@ -25,8 +26,28 @@ if ( ! function_exists( 'vertiMagazine_theme_setup' ) ) :
  * before the init hook. The init hook is too late for some features, such as indicating
  * support post thumbnails.
  */
-
+ $vertimagazine_options = array(
+	
+				"copyright"=>"",
+				"email"=>"",
+				"phone"=>"",
+				"logo_sus"=>"",
+				"logo_jos"=>"",
+				"facebook"=>"",
+				"twitter"=>"",
+				"youtube"=>""
+ );
 function vertiMagazine_theme_setup() {
+	global $vertimagazine_options;
+	$tmp = get_option("vertimagazine_options");
+	$vertimagazine_options['copyright'] = isset($tmp['copyright']) ? $tmp['copyright'] : '';
+	$vertimagazine_options['email'] = isset($tmp['email']) ? $tmp['email'] : '';
+	$vertimagazine_options['phone'] = isset($tmp['phone']) ? $tmp['phone'] : '';
+	$vertimagazine_options['logo_sus'] = isset($tmp['logo_sus']) ? $tmp['logo_sus'] : '';
+	$vertimagazine_options['logo_jos'] = isset($tmp['logo_jos']) ? $tmp['logo_jos'] : '';
+	$vertimagazine_options['facebook'] = isset($tmp['facebook']) ? $tmp['facebook'] : '';
+	$vertimagazine_options['twitter'] = isset($tmp['twitter']) ? $tmp['twitter'] : '';
+	$vertimagazine_options['youtube'] = isset($tmp['youtube']) ? $tmp['youtube'] : '';
 	/**
 	 * Custom template tags for this theme.
 	 */
