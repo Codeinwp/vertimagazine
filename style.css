@@ -1,10 +1,10 @@
 /*
 Theme Name: VertiMagazine
-Theme URI: http://themeisle.com/themes/vertimagazine/
+Theme URI: https://themeisle.com/themes/vertimagazine/
 Author: codeinwp
 Author URI: Codeinwp.com
 Description: VertiMagazine is a responsive WordPress Theme made for people who love beautiful typography.Along with the elegant design the theme is easily customizable with numerous theme options, for example you will be able to easily edit logo, menus.
-Version: 1.0.9
+Version: 1.1
 Tags: red, blue, white, gray, two-columns,full-width-template, flexible-width, custom-menu, threaded-comments, sticky-post, theme-options, editor-style, light, right-sidebar
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -81,6 +81,7 @@ header {
 }
 .no-logo {
 	float:left;
+    margin-top:15px;
 }
 #logo {
     width: 20%;
@@ -151,7 +152,7 @@ header {
 
 #searchform #s {
 	margin-right:10px;
-	height:30px;
+	height:20px;
 	width:70%;
 }
 

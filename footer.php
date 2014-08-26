@@ -38,7 +38,7 @@
 						?>
 						<div class="copyright">
 							<?php echo $copyright; ?>
-							<a href="http://themeisle.com/themes/vertimagazine/?utm_source=vertimagazine&utm_medium=link&utm_campaign=themefooter" target="_blank">VertiMagazine</a><?php _e(' powered by ','cwp'); ?><a href="http://wordpress.org/" target="_blank"><?php _e('WordPress','cwp'); ?></a>				
+							<a href="https://themeisle.com/themes/vertimagazine/" target="_blank">VertiMagazine</a><?php _e(' powered by ','vertiMagazine'); ?><a href="http://wordpress.org/" target="_blank"><?php _e('WordPress','cwp'); ?></a>				
 						</div>
 						<?php
 					endif;
