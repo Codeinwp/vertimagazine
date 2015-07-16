@@ -1,5 +1,14 @@
 
 
+### 1.2.2 - 16/07/2015
+
+ Changes: 
+
+
+ * Update TGMP version for security reasons
+ * Update class-tgm-plugin-activation to latest version
+
+
 ### 1.1.1 - 17/04/2015
 
  Changes: 
